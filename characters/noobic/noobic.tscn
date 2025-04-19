@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://cal8h1oowb6ed"]
+
+[ext_resource type="Texture2D" uid="uid://dit2tcw5akana" path="res://characters/noobic/noobic.png" id="1_00ijt"]
+[ext_resource type="Script" uid="uid://cl5tfuhnuihb7" path="res://characters/noobic/Noobic.cs" id="1_6ghk4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ghk4"]
+radius = 5.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5bohm"]
+atlas = ExtResource("1_00ijt")
+region = Rect2(0, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cddu"]
+atlas = ExtResource("1_00ijt")
+region = Rect2(0, 0, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auf1e"]
+atlas = ExtResource("1_00ijt")
+region = Rect2(0, 48, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6tmg"]
+atlas = ExtResource("1_00ijt")
+region = Rect2(0, 96, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hw807"]
+atlas = ExtResource("1_00ijt")
+region = Rect2(0, 144, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8abv"]
+atlas = ExtResource("1_00ijt")
+region = Rect2(0, 192, 16, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xwn2"]
+atlas = ExtResource("1_00ijt")
+region = Rect2(0, 240, 16, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_12g17"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5bohm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cddu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auf1e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y6tmg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hw807")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8abv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xwn2")
+}],
+"loop": true,
+"name": &"run_down",
+"speed": 5.0
+}]
+
+[node name="Noobic" type="CharacterBody2D"]
+script = ExtResource("1_6ghk4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.05)
+shape = SubResource("CircleShape2D_6ghk4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_12g17")
+animation = &"run_down"
+
+[node name="Camera2D" type="Camera2D" parent="."]

@@ -20,7 +20,6 @@ public partial class Health : Node
         if (increasedHealth > MaxHealth)
         {
             CurrentHealth = MaxHealth;
-
             return;
         }
 
@@ -35,7 +34,6 @@ public partial class Health : Node
         {
             CurrentHealth = 0;
             EmitSignal(SignalName.ReachedZero);
-
             return;
         }
 
